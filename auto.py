@@ -54,6 +54,9 @@ def make_work_log(date: tuple, time: tuple, content: str, image_url: str, lectur
 
     work_picture.add_picture(image_url, width=Cm(11.62), height=Cm(7.24))
 
+    save_url = f"note/{date[MONTH]}월{date[DAY]}일 - {lecture}.docx"
+    print(f"saving {save_url}...")
+
     doc.save(f"note/{date[MONTH]}월{date[DAY]}일 - {lecture}.docx")
 
 
