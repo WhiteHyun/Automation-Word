@@ -1,5 +1,5 @@
 image/
 test.*
 *.docx
-*.ipynb
+# *.ipynb
 .DS_Store
