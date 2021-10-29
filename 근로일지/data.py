@@ -59,12 +59,14 @@ class DailyLog:
 
         # 근로사진 첨부
 
-        work_picture.add_picture(self.image_url, width=Cm(11.62), height=Cm(7.24))
+        work_picture.add_picture(
+            self.image, width=Cm(11.62), height=Cm(7.24))
 
         save_url = f"note/{self.date[MONTH]}월{self.date[DAY]}일 - {self.lecture}.docx"
         print(f"saving {save_url[5:]}...")
 
-        doc.save(f"note/{self.date[MONTH]}월{self.date[DAY]}일 - {self.lecture}.docx")
+        doc.save(
+            f"note/{self.date[MONTH]}월{self.date[DAY]}일 - {self.lecture}.docx")
 
 
 def preprocessing(
@@ -73,7 +75,7 @@ def preprocessing(
 
     # 날짜 전처리
     date_length = str(series["날짜"])
-    assert date_length == 4, "날짜 형식이 잘못되었습니다."
+    assert len(date_length) == 4, f"날짜 형식이 잘못되었습니다. {date_length=}"
     month = int(date_length[:2])
     day = int(date_length[2:])
     date = (month, day)
